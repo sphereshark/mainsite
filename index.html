@@ -18,7 +18,6 @@
       color: white;
       text-align: center;
       padding: 60px 20px;
-      position: relative; /* ← 追加（ボタン配置のため） */
     }
 
     header img {
@@ -27,26 +26,6 @@
       border-radius: 50%;
       border: 4px solid white;
       margin-bottom: 20px;
-    }
-
-    /* 翻訳ボタン */
-    .translate-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #f700ff;
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.1s;
-    }
-
-    .translate-btn:hover {
-      background: #fdc7ff;
-      color: #333;
     }
 
     main {
@@ -96,28 +75,42 @@
     .links a:hover {
       background: #fdc7ff;
     }
+    
+    .linksa a {
+      display: inline-block;
+      margin: 5px 10px;
+      padding: 8px 15px;
+      background: #ff8800;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.1s;
+    }
+
+    .linksa a:hover {
+      background: #ffe0c3;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <button class="translate-btn" onclick="toggleLanguage()">English</button>
     <img src="mainprot.png" alt="プロフィール画像">
-    <h1 id="name">ことね</h1>
+    <h1>ことね</h1>
     <p></p>
   </header>
 
   <main>
     <section>
-      <h2 id="intro-title">自己紹介</h2>
-      <p id="intro-text">
+      <h2>自己紹介</h2>
+      <p>
         コード開発やツール制作してます。<br>
         主にNBTが得意です。
       </p>
     </section>
 
     <section>
-      <ul id="activity-list">
+      <ul>
         <li>🖥️ WiiU内で使えるサイト、コード、ツール作ってます。</li>
         <li>🐍 pinkdの解説サイト作ってます。</li>
       </ul>
@@ -125,8 +118,10 @@
 
     <section>
       <div class="links">
-        <p>pinkdの解説サイトはこちら</p>
-        <a href="https://sphereshark.github.io/mcpinkd_usage/" target="_blank">PinkDiamond usage</a>
+        <a href="https://sphereshark.github.io/mcpinkd_usage/" target="_blank">PinkDiamond 解説サイト(jp,en)</a>
+      </div>
+      <div class="linksa">
+        <a href="https://sphereshark.github.io/Gathering/" target="_blank">codemaking</a>
       </div>
     </section>
 
@@ -134,34 +129,6 @@
 
   <footer>
   </footer>
-
-  <script>
-    let isJapanese = true;
-    function toggleLanguage() {
-      const btn = document.querySelector('.translate-btn');
-      if (isJapanese) {
-        document.getElementById('intro-title').textContent = 'About Me';
-        document.getElementById('intro-text').innerHTML = 
-          'I develop code and create tools.<br>Mainly specialized in NBT.';
-        document.getElementById('activity-list').innerHTML = `
-          <li>🖥️ Creating websites, codes, and tools for use within WiiU.</li>
-          <li>🐍 Building a documentation site for pinkd.</li>
-        `;
-        btn.textContent = '日本語';
-        isJapanese = false;
-      } else {
-        document.getElementById('intro-title').textContent = '自己紹介';
-        document.getElementById('intro-text').innerHTML = 
-          'コード開発やツール制作してます。<br>主にNBTが得意です。';
-        document.getElementById('activity-list').innerHTML = `
-          <li>🖥️ WiiU内で使えるサイト、コード、ツール作ってます。</li>
-          <li>🐍 pinkdの解説サイト作ってます。</li>
-        `;
-        btn.textContent = 'English';
-        isJapanese = true;
-      }
-    }
-  </script>
 
 </body>
 </html>
